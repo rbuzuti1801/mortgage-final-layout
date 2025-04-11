@@ -117,7 +117,7 @@ export default function App() {
           />
         </div>
 
-        {/* Right Column – Blue Box + Small Chart */}
+        {/* Right Column – Blue Box + Chart with White Background */}
         <div
           style={{
             flex: "1 1 400px",
@@ -139,7 +139,16 @@ export default function App() {
               ${monthlyTotal.toFixed(2)}
             </div>
           </div>
-          <div style={{ width: 200, marginTop: 24 }}>
+          <div
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: 12,
+              padding: 16,
+              width: "100%",
+              maxWidth: 220,
+              marginTop: 24,
+            }}
+          >
             <Pie data={data} />
           </div>
         </div>
