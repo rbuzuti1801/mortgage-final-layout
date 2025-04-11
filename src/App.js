@@ -124,7 +124,7 @@ export default function App() {
             minWidth: 300,
             borderRadius: 12,
             overflow: "hidden",
-            boxShadow: "0 2px 10px rgba(0,0,0,0.08)",
+            boxShadow: "0 1px 3px rgba(0,0,0,0.1)", border: "1px solid #E5E7EB",
             display: "flex",
             flexDirection: "column",
           }}
@@ -142,7 +142,7 @@ export default function App() {
           >
             Monthly Payment
             <div style={{ fontSize: 32, marginTop: 8 }}>
-              ${monthlyTotal.toFixed(2)}
+              ${monthlyTotal.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </div>
           </div>
 
