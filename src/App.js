@@ -117,25 +117,31 @@ export default function App() {
           />
         </div>
 
-        {/* Right Column – Value + Chart */}
-        <div style={{ flex: "1 1 400px", minWidth: 300 }}>
-          <div
-            style={{
-              backgroundColor: "#F5F7FA",
-              borderRadius: 12,
-              padding: "24px 16px",
-              textAlign: "center",
-              fontWeight: 700,
-              fontSize: 24,
-              marginBottom: 24,
-            }}
-          >
-            Total Monthly Payment:
-            <div style={{ fontSize: 32, color: "#0070F3", marginTop: 8 }}>
+        {/* Right Column – Blue Box + Small Chart */}
+        <div
+          style={{
+            flex: "1 1 400px",
+            minWidth: 300,
+            backgroundColor: "#0070F3",
+            borderRadius: 12,
+            padding: 24,
+            color: "#fff",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            alignItems: "center",
+            height: "100%",
+          }}
+        >
+          <div style={{ textAlign: "center", fontWeight: 700, fontSize: 20 }}>
+            Monthly Payment
+            <div style={{ fontSize: 32, marginTop: 8 }}>
               ${monthlyTotal.toFixed(2)}
             </div>
           </div>
-          <Pie data={data} />
+          <div style={{ width: 200, marginTop: 24 }}>
+            <Pie data={data} />
+          </div>
         </div>
       </div>
     </div>
