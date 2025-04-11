@@ -117,39 +117,50 @@ export default function App() {
           />
         </div>
 
-        {/* Right Column – Blue Box + Chart with White Background */}
+        {/* Right Column – Card with Header (blue) and Body (white) */}
         <div
           style={{
             flex: "1 1 400px",
             minWidth: 300,
-            backgroundColor: "#0070F3",
             borderRadius: 12,
-            padding: 24,
-            color: "#fff",
+            overflow: "hidden",
+            boxShadow: "0 2px 10px rgba(0,0,0,0.08)",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-between",
-            alignItems: "center",
-            height: "100%",
           }}
         >
-          <div style={{ textAlign: "center", fontWeight: 700, fontSize: 20 }}>
+          {/* Header – Blue */}
+          <div
+            style={{
+              backgroundColor: "#0070F3",
+              padding: "24px 16px",
+              color: "#fff",
+              textAlign: "center",
+              fontWeight: 700,
+              fontSize: 20,
+            }}
+          >
             Monthly Payment
             <div style={{ fontSize: 32, marginTop: 8 }}>
               ${monthlyTotal.toFixed(2)}
             </div>
           </div>
+
+          {/* Body – White with chart */}
           <div
             style={{
-              backgroundColor: "#fff",
-              borderRadius: 12,
-              padding: 16,
-              width: "100%",
-              maxWidth: 220,
-              marginTop: 24,
+              backgroundColor: "#ffffff",
+              padding: "24px 16px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              gap: 16,
             }}
           >
-            <Pie data={data} />
+            <div style={{ width: 220 }}>
+              <Pie data={data} />
+            </div>
           </div>
         </div>
       </div>
