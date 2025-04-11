@@ -47,7 +47,7 @@ export default function App() {
   return (
     <div
       style={{
-        maxWidth: 480,
+        maxWidth: 960,
         margin: "0 auto",
         padding: 24,
       }}
@@ -56,72 +56,85 @@ export default function App() {
         Mortgage Calculator
       </h2>
 
-      <label>Home Price ($)</label>
-      <input
-        type="number"
-        style={inputStyle}
-        value={homePrice}
-        onChange={(e) => setHomePrice(Number(e.target.value))}
-      />
+      <div style={{ maxWidth: 440 }}>
+        <label>Home Price ($)</label>
+        <input
+          type="number"
+          style={inputStyle}
+          value={homePrice}
+          onChange={(e) => setHomePrice(Number(e.target.value))}
+        />
 
-      <label>Down Payment ($)</label>
-      <input
-        type="number"
-        style={inputStyle}
-        value={downPayment}
-        onChange={(e) => setDownPayment(Number(e.target.value))}
-      />
+        <label>Down Payment ($)</label>
+        <input
+          type="number"
+          style={inputStyle}
+          value={downPayment}
+          onChange={(e) => setDownPayment(Number(e.target.value))}
+        />
 
-      <label>Interest Rate (%)</label>
-      <input
-        type="number"
-        style={inputStyle}
-        value={interestRate}
-        step="0.01"
-        onChange={(e) => setInterestRate(Number(e.target.value))}
-      />
+        <label>Interest Rate (%)</label>
+        <input
+          type="number"
+          style={inputStyle}
+          value={interestRate}
+          step="0.01"
+          onChange={(e) => setInterestRate(Number(e.target.value))}
+        />
 
-      <label>Loan Term (Years)</label>
-      <input
-        type="number"
-        style={inputStyle}
-        value={loanTerm}
-        onChange={(e) => setLoanTerm(Number(e.target.value))}
-      />
+        <label>Loan Term (Years)</label>
+        <input
+          type="number"
+          style={inputStyle}
+          value={loanTerm}
+          onChange={(e) => setLoanTerm(Number(e.target.value))}
+        />
 
-      <label>Property Tax ($/mo)</label>
-      <input
-        type="number"
-        style={inputStyle}
-        value={tax}
-        onChange={(e) => setTax(Number(e.target.value))}
-      />
+        <label>Property Tax ($/mo)</label>
+        <input
+          type="number"
+          style={inputStyle}
+          value={tax}
+          onChange={(e) => setTax(Number(e.target.value))}
+        />
 
-      <label>Insurance ($/mo)</label>
-      <input
-        type="number"
-        style={inputStyle}
-        value={insurance}
-        onChange={(e) => setInsurance(Number(e.target.value))}
-      />
+        <label>Insurance ($/mo)</label>
+        <input
+          type="number"
+          style={inputStyle}
+          value={insurance}
+          onChange={(e) => setInsurance(Number(e.target.value))}
+        />
+      </div>
 
       <div
         style={{
-          marginTop: 24,
-          padding: 16,
-          backgroundColor: "#0070F3",
-          borderRadius: 8,
-          fontWeight: 700,
-          fontSize: 18,
-          textAlign: "center",
-          color: "#fff",
+          marginTop: 40,
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 24,
+          justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
-        Monthly Payment: ${monthlyTotal.toFixed(0)}/mo
-      </div>
-
-      <div style={{ marginTop: 32 }}>
-        <Pie data={data} />
+        <div
+          style={{
+            flex: "1 1 280px",
+            backgroundColor: "#0070F3",
+            borderRadius: 12,
+            padding: 24,
+            color: "#ffffff",
+            fontWeight: 700,
+            fontSize: 20,
+            textAlign: "center",
+          }}
+        >
+          Monthly Payment<br />
+          <span style={{ fontSize: 32 }}>${monthlyTotal.toFixed(0)}/mo</span>
+        </div>
+        <div style={{ flex: "1 1 300px" }}>
+          <Pie data={data} />
+        </div>
       </div>
     </div>
   )
