@@ -47,92 +47,94 @@ export default function App() {
   return (
     <div
       style={{
-        maxWidth: 960,
+        maxWidth: 1100,
         margin: "0 auto",
         padding: 24,
+        fontFamily: "Manrope, sans-serif",
       }}
     >
       <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 20 }}>
         Mortgage Calculator
       </h2>
 
-      <div style={{ maxWidth: 440 }}>
-        <label>Home Price ($)</label>
-        <input
-          type="number"
-          style={inputStyle}
-          value={homePrice}
-          onChange={(e) => setHomePrice(Number(e.target.value))}
-        />
-
-        <label>Down Payment ($)</label>
-        <input
-          type="number"
-          style={inputStyle}
-          value={downPayment}
-          onChange={(e) => setDownPayment(Number(e.target.value))}
-        />
-
-        <label>Interest Rate (%)</label>
-        <input
-          type="number"
-          style={inputStyle}
-          value={interestRate}
-          step="0.01"
-          onChange={(e) => setInterestRate(Number(e.target.value))}
-        />
-
-        <label>Loan Term (Years)</label>
-        <input
-          type="number"
-          style={inputStyle}
-          value={loanTerm}
-          onChange={(e) => setLoanTerm(Number(e.target.value))}
-        />
-
-        <label>Property Tax ($/mo)</label>
-        <input
-          type="number"
-          style={inputStyle}
-          value={tax}
-          onChange={(e) => setTax(Number(e.target.value))}
-        />
-
-        <label>Insurance ($/mo)</label>
-        <input
-          type="number"
-          style={inputStyle}
-          value={insurance}
-          onChange={(e) => setInsurance(Number(e.target.value))}
-        />
-      </div>
-
       <div
         style={{
-          marginTop: 40,
           display: "flex",
           flexWrap: "wrap",
-          gap: 24,
-          justifyContent: "space-between",
-          alignItems: "center",
+          gap: 40,
+          alignItems: "flex-start",
         }}
       >
-        <div
-          style={{
-            flex: "1 1 280px",
-            backgroundColor: "#0070F3",
-            borderRadius: 12,
-            padding: 24,
-            color: "#ffffff",
-            fontWeight: 700,
-            fontSize: 20,
-            textAlign: "center",
-          }}
-        >
-          Monthly Payment<br />
-          <span style={{ fontSize: 32 }}>${monthlyTotal.toFixed(0)}/mo</span>
+        {/* Left Column – Form */}
+        <div style={{ flex: "1 1 320px", minWidth: 280 }}>
+          <label>Home Price ($)</label>
+          <input
+            type="number"
+            style={inputStyle}
+            value={homePrice}
+            onChange={(e) => setHomePrice(Number(e.target.value))}
+          />
+
+          <label>Down Payment ($)</label>
+          <input
+            type="number"
+            style={inputStyle}
+            value={downPayment}
+            onChange={(e) => setDownPayment(Number(e.target.value))}
+          />
+
+          <label>Interest Rate (%)</label>
+          <input
+            type="number"
+            style={inputStyle}
+            value={interestRate}
+            step="0.01"
+            onChange={(e) => setInterestRate(Number(e.target.value))}
+          />
+
+          <label>Loan Term (Years)</label>
+          <input
+            type="number"
+            style={inputStyle}
+            value={loanTerm}
+            onChange={(e) => setLoanTerm(Number(e.target.value))}
+          />
+
+          <label>Property Tax ($/mo)</label>
+          <input
+            type="number"
+            style={inputStyle}
+            value={tax}
+            onChange={(e) => setTax(Number(e.target.value))}
+          />
+
+          <label>Insurance ($/mo)</label>
+          <input
+            type="number"
+            style={inputStyle}
+            value={insurance}
+            onChange={(e) => setInsurance(Number(e.target.value))}
+          />
         </div>
-        <div style={{ flex: "1 1 300px" }}>
+
+        {/* Right Column – Value + Chart */}
+        <div style={{ flex: "1 1 400px", minWidth: 300 }}>
+          <div
+            style={{
+              backgroundColor: "#F5F7FA",
+              borderRadius: 12,
+              padding: "24px 16px",
+              textAlign: "center",
+              fontWeight: 700,
+              fontSize: 24,
+              marginBottom: 24,
+            }}
+          >
+            Total Monthly Payment:
+            <div style={{ fontSize: 32, color: "#0070F3", marginTop: 8 }}>
+              ${monthlyTotal.toFixed(2)}
+            </div>
+          </div>
           <Pie data={data} />
         </div>
       </div>
